@@ -15,9 +15,12 @@
 	  }
 	  
 	  render() {
-	    // To render the drum machine composed by drum pads
+	    {/* To render the drum machine composed by drum pads*/}
+	    return (
+	      <p>Test</p>
+	    );
 	  }
-	}
+	};
 	
 	class DrumPad extends React.Component {
 	  constructor(props) {
@@ -25,9 +28,21 @@
 	  }
 	  
 	  render() {
-	    // To render individual drum pads
+	    return (
+	      <p>Test</p>
+	    );
 	  }
-    }
+    };
+    
+    ReactDOM.render(
+      <App />,
+      document.getElementById('app')
+    );
+    
+    ReactDOM.render(
+      <DrumPad />,
+      document.getElementById('pad')
+    );
   </script>
   <style>
     h1 {
@@ -38,6 +53,8 @@
 </head>
 <body>
 	<h1>Drum Machine</h1>
+	<div id="app"></div>
+	<div id="pad"></div>
   <div id="drum-machine">
     <div id="display"></div>
     <div class="drum-pad" id="audio-clip-1">
