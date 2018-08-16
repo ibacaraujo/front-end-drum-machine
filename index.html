@@ -17,7 +17,11 @@
 	  render() {
 	    {/* To render the drum machine composed by drum pads */}
 	    return (
-	      <Display />
+	      <div>
+	        <Display />
+	        <DrumPad />
+	      </div>
+	      
 	    );
 	  }
 	};
@@ -53,11 +57,6 @@
     ReactDOM.render(
       <App />,
       document.getElementById('drum-machine')
-    );
-    
-    ReactDOM.render(
-      <DrumPad />,
-      document.getElementById('pad')
     );
   </script>
   <style>
