@@ -15,19 +15,20 @@
 	  }
 	  
 	  render() {
-	    {/* To render the drum machine composed by drum pads */}
+	    {/* To render the drum machine composed by display and 
+		drum pads */}
 	    return (
 	      <div>
 	        <Display />
-	        <DrumPad keyboard="Q"/>
-	        <DrumPad keyboard="W"/>
-	        <DrumPad keyboard="E"/>
-	        <DrumPad keyboard="A"/>
-	        <DrumPad keyboard="S"/>
-	        <DrumPad keyboard="D"/>
-	        <DrumPad keyboard="Z"/>
-	        <DrumPad keyboard="X"/>
-	        <DrumPad keyboard="C"/>
+	        <DrumPad keyboard="Q" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" />
+	        <DrumPad keyboard="W" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" />
+	        <DrumPad keyboard="E" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" />
+	        <DrumPad keyboard="A" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" />
+	        <DrumPad keyboard="S" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" />
+	        <DrumPad keyboard="D" audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" />
+	        <DrumPad keyboard="Z" audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" />
+	        <DrumPad keyboard="X" audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" />
+	        <DrumPad keyboard="C" audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" />
 	      </div>
 	      
 	    );
@@ -56,7 +57,7 @@
 	    return (
 	      <div class="drum-pad" id="audio-clip-1">
 		    {this.props.keyboard}
-		    <audio class="clip" id={this.props.keyboard} src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" />
+		    <audio class="clip" id={this.props.keyboard} src={this.props.audio} />
 		  </div>
 	    );
 	  }
