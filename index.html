@@ -56,7 +56,7 @@
 	  render() {
 	    return (
 	      <div class="drum-pad" id="audio-clip-1">
-		    {this.props.keyboard}
+		    <div>{this.props.keyboard}</div>
 		    <audio class="clip" id={this.props.keyboard} src={this.props.audio} ></audio>
 		  </div>
 	    );
@@ -69,9 +69,14 @@
     );
   </script>
   <style>
-    h1 {
+    #title {
 	  font-family: 'Source Sans Pro', sans-serif;
 	  font-size: 80px;
+	}
+	
+	div {
+	  font-family: 'Source Sans Prop', sans-serif;
+	  font-size: 48px;
 	}
   </style>
 </head>
