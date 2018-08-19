@@ -51,6 +51,8 @@
 	class DrumPad extends React.Component {
 	  constructor(props) {
 	    super(props);
+
+	    this.playSound = this.playSound.bind(this);
 	  }
 
 	  playSound(e) {
