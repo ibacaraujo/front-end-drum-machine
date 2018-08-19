@@ -60,7 +60,10 @@
 	  
 	  render() {
 	    return (
-	      <div class="drum-pad" id="audio-clip-1">
+	      <div 
+	        className="drum-pad" 
+	        onClick={this.playSound}
+	        id="audio-clip-1">
 		    <div>{this.props.keyboard}</div>
 		    <audio class="clip" id={this.props.keyboard} src={this.props.audio} ></audio>
 		  </div>
