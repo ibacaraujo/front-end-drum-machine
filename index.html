@@ -53,11 +53,18 @@
 	    super(props);
 
 	    this.playSound = this.playSound.bind(this);
+	    this.handleKeyPress = this.handleKeyPress.bind(this);
 	  }
 
 	  playSound(e) {
       const sound = document.getElementById(this.props.keyboard);
       sound.play();
+	  }
+
+	  handleKeyPress(e) {
+      if (e.keyboard === this.props.keyboard) {
+        this.playSound();
+      }
 	  }
 	  
 	  render() {
