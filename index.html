@@ -52,6 +52,11 @@
 	  constructor(props) {
 	    super(props);
 	  }
+
+	  playSound(e) {
+      const sound = document.getElementById(this.props.keyboard);
+      sound.play();
+	  }
 	  
 	  render() {
 	    return (
