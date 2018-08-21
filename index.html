@@ -56,15 +56,15 @@
 	    this.handleKeyPress = this.handleKeyPress.bind(this);
 	  }
 
-	  playSound(e) {
-      const sound = document.getElementById(this.props.keyboard);
-      sound.play();
+	  playSound() {
+        var audio = new Audio(this.props.audio);
+        audio.play();
 	  }
 
 	  handleKeyPress(e) {
-      if (e.keyboard === this.props.keyboard) {
-        this.playSound();
-      }
+        if (e.keyboard === this.props.keyboard) {
+          this.playSound();
+        }
 	  }
 	  
 	  render() {
