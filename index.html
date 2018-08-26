@@ -51,11 +51,11 @@
 	  constructor(props) {
 	    super(props);
 
-	    this.playSound = this.playSound.bind(this);
+	    this.playAudioClip = this.playAudioClip.bind(this);
 	    this.handleKeyPress = this.handleKeyPress.bind(this);
 	  }
 
-	  playSound() {
+	  playAudioClip() {
         var audio = new Audio(this.props.audio);
         audio.play();
 	  }
@@ -70,7 +70,7 @@
 	    return (
 	      <div 
 	        className="drum-pad" 
-	        onClick={this.playSound}
+	        onClick={this.playAudioClip}
 	        id={this.props.unique}
 	       >
 		      <div>{this.props.keyboard}</div>
