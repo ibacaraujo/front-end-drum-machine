@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Drum Machine</title>
-  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   <script src="https://unpkg.com/react@15/dist/react.js"></script>
@@ -20,15 +20,15 @@
 	    return (
 	      <div>
 	        <Display />
-	        <DrumPad keyboard="Q" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" />
-	        <DrumPad keyboard="W" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" />
-	        <DrumPad keyboard="E" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" />
-	        <DrumPad keyboard="A" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" />
-	        <DrumPad keyboard="S" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" />
-	        <DrumPad keyboard="D" audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" />
-	        <DrumPad keyboard="Z" audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" />
-	        <DrumPad keyboard="X" audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" />
-	        <DrumPad keyboard="C" audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" />
+	        <DrumPad keyboard="Q" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" />
+	        <DrumPad keyboard="W" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" />
+	        <DrumPad keyboard="E" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3"/>
+	        <DrumPad keyboard="A" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" unique="h41" />
+	        <DrumPad keyboard="S" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" unique="h6" />
+	        <DrumPad keyboard="D" audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" unique="dscoh" />
+	        <DrumPad keyboard="Z" audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" unique="kick" />
+	        <DrumPad keyboard="X" audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" unique="rp4" />
+	        <DrumPad keyboard="C" audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" unique="cev" />
 	      </div>
 	      
 	    );
@@ -42,8 +42,7 @@
 	  
 	  render() {
 	    return (
-	      <div id="display">
-		  </div>
+	      <div id="display"></div>
 	    )
 	  }
 	};
@@ -72,10 +71,12 @@
 	      <div 
 	        className="drum-pad" 
 	        onClick={this.playSound}
-	        id="audio-clip-1">
-		    <div>{this.props.keyboard}</div>
-		    <audio class="clip" id={this.props.keyboard} src={this.props.audio} ></audio>
-		  </div>
+	        id={this.props.unique}
+	       >
+		      <div>{this.props.keyboard}</div>
+		      <audio className="clip" src={this.props.audio} id={this.props.keyboard}>
+		      </audio>
+		    </div>
 	    );
 	  }
     };
@@ -98,8 +99,11 @@
   </style>
 </head>
 <body>
+
 	<h1 id="title" class="text-center">Drum Machine</h1>
-    <div id="drum-machine" class="text-center"></div>
-  </div>
+  <div id="drum-machine" class="text-center"></div>
+
+  <!-- Load the bundle to test user stories -->
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
