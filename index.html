@@ -20,15 +20,15 @@
 	    return (
 	      <div>
 	        <Display />
-	        <DrumPad keyboard="Q" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" />
-	        <DrumPad keyboard="W" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" />
-	        <DrumPad keyboard="E" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3"/>
-	        <DrumPad keyboard="A" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" unique="h41" />
-	        <DrumPad keyboard="S" audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" unique="h6" />
-	        <DrumPad keyboard="D" audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" unique="dscoh" />
-	        <DrumPad keyboard="Z" audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" unique="kick" />
-	        <DrumPad keyboard="X" audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" unique="rp4" />
-	        <DrumPad keyboard="C" audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" unique="cev" />
+	        <DrumPad keyboard="Q" keyCode={81} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" />
+	        <DrumPad keyboard="W" keyCode={87} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" />
+	        <DrumPad keyboard="E" keyCode={69} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3"/>
+	        <DrumPad keyboard="A" keyCode={65} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" unique="h41" />
+	        <DrumPad keyboard="S" keyCode={83} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" unique="h6" />
+	        <DrumPad keyboard="D" keyCode={68} audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" unique="dscoh" />
+	        <DrumPad keyboard="Z" keyCode={90} audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" unique="kick" />
+	        <DrumPad keyboard="X" keyCode={88} audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" unique="rp4" />
+	        <DrumPad keyboard="C" keyCode={67} audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" unique="cev" />
 	      </div>
 	      
 	    );
@@ -59,10 +59,18 @@
         var audio = new Audio(this.props.audio);
         audio.play();
 	  }
+	  
+	  componentDidMount() {
+	    document.addEventListener('keydown', this.handleKeyPress);
+	  }
+	  
+	  componentWillUnmount() {
+	    document.removeEventListener('keydown', this.handleKeyPress);
+	  }
 
 	  handleKeyPress(e) {
-        if (e.keyboard === this.props.keyboard) {
-          this.playSound();
+        if (e.keyCode === this.props.keyCode) {
+          this.playAudioClip();
         }
 	  }
 	  
@@ -71,6 +79,7 @@
 	      <div 
 	        className="drum-pad" 
 	        onClick={this.playAudioClip}
+	        onKeyPress={this.handleKeyPress}
 	        id={this.props.unique}
 	       >
 		      <div>{this.props.keyboard}</div>
