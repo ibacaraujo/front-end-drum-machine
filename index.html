@@ -30,7 +30,7 @@
 		drum pads */}
 	    return (
 	      <div>
-	        {this.state.display}
+	        <div id="display">{this.state.display}</div>
 	        <DrumPad keyboard="Q" keyCode={81} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" handle={this.handleDisplay} />
 	        <DrumPad keyboard="W" keyCode={87} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" handle={this.handleDisplay} />
 	        <DrumPad keyboard="E" keyCode={69} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3" handle={this.handleDisplay} />
