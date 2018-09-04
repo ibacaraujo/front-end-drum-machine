@@ -15,6 +15,7 @@
 	    this.state = {
 		  display: "Play and here the audio clip will be displayed!"
 		}
+		this.handleDisplay = this.handleDisplay.bind(this);
 	  }
 	  
 	  handleDisplay(e) {
@@ -72,11 +73,16 @@
         }
 	  }
 	  
+	  playAndDisplay(e) {
+		e.preventDefault();
+	    this.playAudioClip();
+	  }
+	  
 	  render() {
 	    return (
 	      <div 
 	        className="drum-pad" 
-	        onClick={this.playAudioClip}
+	        onClick={this.playAndDisplay}
 	        onKeyPress={this.handleKeyPress}
 	        id={this.props.unique}
 	       >
