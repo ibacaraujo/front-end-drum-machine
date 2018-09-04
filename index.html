@@ -12,38 +12,30 @@
     class App extends React.Component {
 	  constructor(props) {
 	    super(props);
+	    this.state = {
+		  display: "Play and here the audio clip will be displayed!"
+		}
 	  }
+	  
 	  
 	  render() {
 	    {/* To render the drum machine composed by display and 
 		drum pads */}
 	    return (
 	      <div>
-	        <Display />
-	        <DrumPad keyboard="Q" keyCode={81} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" />
-	        <DrumPad keyboard="W" keyCode={87} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" />
-	        <DrumPad keyboard="E" keyCode={69} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3"/>
-	        <DrumPad keyboard="A" keyCode={65} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" unique="h41" />
-	        <DrumPad keyboard="S" keyCode={83} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" unique="h6" />
-	        <DrumPad keyboard="D" keyCode={68} audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" unique="dscoh" />
-	        <DrumPad keyboard="Z" keyCode={90} audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" unique="kick" />
-	        <DrumPad keyboard="X" keyCode={88} audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" unique="rp4" />
-	        <DrumPad keyboard="C" keyCode={67} audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" unique="cev" />
+	        {this.state.display}
+	        <DrumPad keyboard="Q" keyCode={81} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" handle={this.handleDisplay} />
+	        <DrumPad keyboard="W" keyCode={87} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" handle={this.handleDisplay} />
+	        <DrumPad keyboard="E" keyCode={69} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3" handle={this.handleDisplay} />
+	        <DrumPad keyboard="A" keyCode={65} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" unique="h41" handle={this.handleDisplay} />
+	        <DrumPad keyboard="S" keyCode={83} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" unique="h6" handle={this.handleDisplay} />
+	        <DrumPad keyboard="D" keyCode={68} audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" unique="dscoh" handle={this.handleDisplay} />
+	        <DrumPad keyboard="Z" keyCode={90} audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" unique="kick" handle={this.handleDisplay} />
+	        <DrumPad keyboard="X" keyCode={88} audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" unique="rp4" handle={this.handleDisplay} />
+	        <DrumPad keyboard="C" keyCode={67} audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" unique="cev" handle={this.handleDisplay} />
 	      </div>
 	      
 	    );
-	  }
-	};
-	
-	class Display extends React.Component {
-	  constructor(props) {
-	    super(props);
-	  }
-	  
-	  render() {
-	    return (
-	      <div id="display"></div>
-	    )
 	  }
 	};
 	
