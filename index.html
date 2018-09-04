@@ -17,6 +17,12 @@
 		}
 	  }
 	  
+	  handleDisplay(e) {
+	    e.preventDefault();
+	    this.setState({
+		  display: "Update"
+		})
+	  }
 	  
 	  render() {
 	    {/* To render the drum machine composed by display and 
