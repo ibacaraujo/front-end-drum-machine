@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Drum Machine</title>
-  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   <script src="https://unpkg.com/react@15/dist/react.js"></script>
@@ -15,7 +14,7 @@
 	    this.state = {
 		  display: "Play and here the audio clip will be displayed!"
 		}
-		this.handleDisplay = this.handleDisplay.bind(this);
+		  this.handleDisplay = this.handleDisplay.bind(this);
 	  }
 	  
 	  handleDisplay(e) {
@@ -29,9 +28,9 @@
 	    {/* To render the drum machine composed by display and 
 		drum pads */}
 	    return (
-	      <div>
+	      <div id='drum-machine'>
 	        <div id="display">{this.state.display}</div>
-	        <DrumPad keyboard="Q" keyCode={81} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" handle={this.handleDisplay} />
+	        <DrumPad keyboard="Q" keyCode={81} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" handle={this.handleDisplay} onClick={this.props.onClick}/>
 	        <DrumPad keyboard="W" keyCode={87} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" handle={this.handleDisplay} />
 	        <DrumPad keyboard="E" keyCode={69} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3" handle={this.handleDisplay} />
 	        <DrumPad keyboard="A" keyCode={65} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" unique="h41" handle={this.handleDisplay} />
@@ -82,7 +81,7 @@
 	    return (
 	      <div 
 	        className="drum-pad" 
-	        onClick={this.playAndDisplay}
+	        onClick={new Audio(this.props.audio).play()}
 	        onKeyPress={this.handleKeyPress}
 	        id={this.props.unique}
 	       >
@@ -96,7 +95,7 @@
     
     ReactDOM.render(
       <App />,
-      document.getElementById('drum-machine')
+      document.getElementById('root')
     );
   </script>
   <style>
@@ -114,7 +113,7 @@
 <body>
 
 	<h1 id="title" class="text-center">Drum Machine</h1>
-  <div id="drum-machine" class="text-center"></div>
+  <div id="root"></div>
 
   <!-- Load the bundle to test user stories -->
   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
