@@ -43,15 +43,11 @@
 	    return (
 	      <div id='drum-machine'>
 	        <h1 id="display">{this.state.display}</h1>
-	        <DrumPad keyboard="Q" keyCode={81} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" unique="h1" handle={this.handleDisplay} onClick={this.props.onClick}/>
-	        <DrumPad keyboard="W" keyCode={87} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3" unique="h2" handle={this.handleDisplay} />
-	        <DrumPad keyboard="E" keyCode={69} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" unique="h3" handle={this.handleDisplay} />
-	        <DrumPad keyboard="A" keyCode={65} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" unique="h41" handle={this.handleDisplay} />
-	        <DrumPad keyboard="S" keyCode={83} audio="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" unique="h6" handle={this.handleDisplay} />
-	        <DrumPad keyboard="D" keyCode={68} audio="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" unique="dscoh" handle={this.handleDisplay} />
-	        <DrumPad keyboard="Z" keyCode={90} audio="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" unique="kick" handle={this.handleDisplay} />
-	        <DrumPad keyboard="X" keyCode={88} audio="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" unique="rp4" handle={this.handleDisplay} />
-	        <DrumPad keyboard="C" keyCode={67} audio="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" unique="cev" handle={this.handleDisplay} />
+	        {data.map(d => (
+	          <DrumPad
+	          
+	          />
+	        ))}
 	      </div>
 	      
 	    );
