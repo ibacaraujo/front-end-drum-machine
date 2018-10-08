@@ -46,6 +46,7 @@
 	        {data.map(d => (
 	          <DrumPad
 	          	id={d.id}
+	          	letter={d.letter}
 	          />
 	        ))}
 	      </div>
@@ -94,6 +95,7 @@
 	        onClick={new Audio(this.props.audio).play()}
 	        onKeyPress={this.handleKeyPress}
 	       >
+	       	<p>{this.props.letter}</p>
 		      <div>{this.props.keyboard}</div>
 		      <audio className="clip" src={this.props.audio} id={this.props.keyboard}>
 		      </audio>
