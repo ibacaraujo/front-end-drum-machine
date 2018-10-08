@@ -10,15 +10,15 @@
   <script type="text/babel">
 
   	const data = [
-  		{ id: 'heater1', letter: 'Q', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'},
-  		{ id: 'heater2', letter: 'W', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'},
-  		{ id: 'heater3', letter: 'E', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'},
-  		{ id: 'heater4', letter: 'A', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'},
-  		{ id: 'heater6', letter: 'S', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'},
-  		{ id: 'dscoh', letter: 'D', src: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'},
-  		{ id: 'kicknhat', letter: 'Z', src: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'},
-  		{ id: 'rp4kick1', letter: 'X', src: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'},
-  		{ id: 'cevh2', letter: 'C', src: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'},
+  		{ id: 'Q', letter: 'Q', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'},
+  		{ id: 'W', letter: 'W', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'},
+  		{ id: 'E', letter: 'E', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'},
+  		{ id: 'A', letter: 'A', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'},
+  		{ id: 'S', letter: 'S', src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'},
+  		{ id: 'D', letter: 'D', src: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'},
+  		{ id: 'Z', letter: 'Z', src: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'},
+  		{ id: 'X', letter: 'X', src: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'},
+  		{ id: 'C', letter: 'C', src: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'},
   	];
 
     class App extends React.Component {
@@ -47,6 +47,7 @@
 	          <DrumPad
 	          	id={d.id}
 	          	letter={d.letter}
+	          	src={d.src}
 	          />
 	        ))}
 	      </div>
@@ -89,15 +90,12 @@
 	  
 	  render() {
 	    return (
-	      <div 
-	        className="drum-pad" 
-	        id={this.props.id}
-	        onClick={new Audio(this.props.audio).play()}
-	        onKeyPress={this.handleKeyPress}
-	       >
+	      <div className="drum-pad" id={this.props.id}>
 	       	<p>{this.props.letter}</p>
-		      <div>{this.props.keyboard}</div>
-		      <audio className="clip" src={this.props.audio} id={this.props.keyboard}>
+		      <audio 
+		      	className='clip' 
+		      	src={this.props.src} 
+		      	id={this.props.id}>
 		      </audio>
 		    </div>
 	    );
