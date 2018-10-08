@@ -90,9 +90,9 @@
 	    return (
 	      <div 
 	        className="drum-pad" 
+	        id={this.props.id}
 	        onClick={new Audio(this.props.audio).play()}
 	        onKeyPress={this.handleKeyPress}
-	        id={this.props.unique}
 	       >
 		      <div>{this.props.keyboard}</div>
 		      <audio className="clip" src={this.props.audio} id={this.props.keyboard}>
