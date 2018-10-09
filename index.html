@@ -30,13 +30,6 @@
 		  this.handleDisplay = this.handleDisplay.bind(this);
 	  }
 	  
-	  handleDisplay(e) {
-	    e.preventDefault();
-	    this.setState({
-		  display: "Update"
-		})
-	  }
-	  
 	  render() {
 	    {/* To render the drum machine composed by display and 
 		drum pads */}
@@ -90,9 +83,12 @@
 	  
 	  render() {
 	    return (
-	      <div className="drum-pad" id={this.props.id}>
+	      <div 
+	      	className="drum-pad" 
+	      	id={this.props.id}
 	       	<p>{this.props.letter}</p>
 		      <audio 
+		     		ref={ref => this.audio = ref}
 		      	className='clip' 
 		      	src={this.props.src} 
 		      	id={this.props.id}>
