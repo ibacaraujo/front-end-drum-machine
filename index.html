@@ -26,8 +26,7 @@
 	    super(props);
 	    this.state = {
 		  display: "Play and here the audio clip will be displayed!"
-		}
-		  this.handleDisplay = this.handleDisplay.bind(this);
+			}
 	  }
 	  
 	  render() {
@@ -36,13 +35,14 @@
 	    return (
 	      <div id='drum-machine'>
 	        <h1 id="display">{this.state.display}</h1>
-	        {data.map(d => (
+	        <div id='drum-pads'>
+	        	{data.map(d => (
 	          <DrumPad
 	          	id={d.id}
 	          	letter={d.letter}
 	          	src={d.src}
 	          />
-	        ))}
+	        ))}</div>
 	      </div>
 	      
 	    );
@@ -58,8 +58,9 @@
 	  }
 
 	  playAudioClip() {
-        var audio = new Audio(this.props.audio);
+        var audio = new Audio(this.props.src);
         audio.play();
+        audio.currentTime = 0;
 	  }
 	  
 	  componentDidMount() {
@@ -80,21 +81,15 @@
 		e.preventDefault();
 	    this.playAudioClip();
 	  }
-
-	  handleClick() {
-	  	this.audio.play();
-	  	this.audio.currentTime = 0;
-		}
 	  
 	  render() {
 	    return (
 	      <div 
 	      	className="drum-pad" 
 	      	id={this.props.id}
-	      	onClick={this.handleClick}>
+	      	onClick={this.playAudioClip}>
 	       	<p>{this.props.letter}</p>
 		      <audio 
-		     		ref={ref => this.audio = ref}
 		      	className='clip' 
 		      	src={this.props.src} 
 		      	id={this.props.id}>
@@ -119,6 +114,18 @@
 	  font-family: 'Source Sans Prop', sans-serif;
 	  font-size: 48px;
 	}
+
+.drum-pad {
+  border: 1px solid black;
+  height: 20vh;
+  width: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+  background-color: #84eeff;
+}
+
   </style>
 </head>
 <body>
