@@ -25,7 +25,7 @@
 	  constructor(props) {
 	    super(props);
 	    this.state = {
-		  display: "Play and here the audio clip will be displayed!"
+		  display: "Enjoy your own beats!"
 			}
 	  }
 	  
@@ -34,7 +34,7 @@
 		drum pads */}
 	    return (
 	      <div id='drum-machine'>
-	        <h1 id="display">{this.state.display}</h1>
+	        <h2 id="display">{this.state.display}</h2>
 	        <div id='drum-pads'>
 	        	{data.map(d => (
 	          <DrumPad
@@ -106,26 +106,37 @@
   </script>
   <style>
     #title {
-	  font-family: 'Source Sans Pro', sans-serif;
-	  font-size: 80px;
-	}
+	  	font-family: 'Source Sans Pro', sans-serif;
+	  	font-size: 80px;
+		}
 	
-	div {
-	  font-family: 'Source Sans Prop', sans-serif;
-	  font-size: 48px;
-	}
+		div {
+	  	font-family: 'Source Sans Prop', sans-serif;
+	  	font-size: 48px;
+		}
 
-.drum-pad {
-  border: 1px solid black;
-  height: 20vh;
-  width: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1vw;
-  background-color: #84eeff;
-}
+		.drum-pad {
+  		border: 1px solid black;
+  		height: 15vh;
+  		width: 15vh;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+  		margin-right: 1vw;
+  		background-color: white;
+		}
 
+		#drum-pads {
+  		height: 75vh;
+  		width: 100vw;
+  		display: flex;
+  		justify-content: center;
+  		align-items: center;
+		}
+
+		#display {
+			text-align: center;
+		}
   </style>
 </head>
 <body>
