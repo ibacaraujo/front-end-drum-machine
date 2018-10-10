@@ -27,11 +27,12 @@
 	    this.state = {
 		  display: "Enjoy your own beats!"
 			}
+			this.handleDisplay = this.handleDisplay.bind(this);
 	  }
 
-	  handleDisplay(display) {
+	  handleDisplay(e) {
 	  	this.setState({
-	  		display: display
+	  		display: e.target.id
 	  	});
 		}
 	  
