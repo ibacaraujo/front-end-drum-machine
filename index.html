@@ -82,7 +82,7 @@
 	  }
 
 	  handleKeyPress(e) {
-        if (e.keyCode === this.props.keyCode) {
+        if (e.keyCode === this.props.letter.charCodeAt()) {
           this.playAudioClip();
         }
 	  }
@@ -92,7 +92,8 @@
 	      <div 
 	      	className="drum-pad" 
 	      	id={this.props.id}
-	      	onClick={this.playAudioClip}>
+	      	onClick={this.playAudioClip}
+	      	onKeyPress={this.handleKeyPress}>
 	       	<p>{this.props.letter}</p>
 		      <audio 
 		      	ref={ref => this.audio = ref}
