@@ -26,15 +26,16 @@
 	    super(props);
 	    this.state = {
 		  display: "Enjoy your own beats!"
-			}
-			this.handleDisplay = this.handleDisplay.bind(this);
-	  }
-
-	  handleDisplay(e) {
-	  	this.setState({
-	  		display: e.target.id
-	  	});
 		}
+		this.handleDisplay = this.handleDisplay.bind(this);
+	  }
+	  
+
+	  handleDisplay(display) {
+	  	this.setState({
+	  		display: display
+	  	});
+	  }
 	  
 	  render() {
 	    {/* To render the drum machine composed by display and 
