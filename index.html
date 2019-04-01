@@ -20,7 +20,58 @@
   		{ id: 'X', letter: 'X', src: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'},
   		{ id: 'C', letter: 'C', src: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'},
   	];
+	
+	class DrumPad extends React.Component {
+	  constructor(props) {
+	    super(props);
 
+	    this.playAudioClip = this.playAudioClip.bind(this);
+	    this.handleKeyPress = this.handleKeyPress.bind(this);
+	  }
+
+	  
+	  
+	  componentDidMount() {
+	    document.addEventListener('keydown', this.handleKeyPress);
+	    window.focus();
+	  }
+	  
+	  componentWillUnmount() {
+	    document.removeEventListener('keydown', this.handleKeyPress);
+	  }
+	  
+	  playAudioClip() {
+        var audio = new Audio(this.props.src);
+        audio.play();
+        audio.currentTime = 0;
+        this.props.handleDisplay(this.props.id);
+	  }
+
+	  handleKeyPress(e) {
+        if (e.keyCode === this.props.letter.charCodeAt()) {
+          this.playAudioClip();
+        }
+	  }
+	  
+	  render() {
+	    return (
+	      <div 
+	      	className="drum-pad" 
+	      	id={this.props.id}
+	      	onClick={this.playAudioClip}
+	      >
+	          <h1>{this.props.letter}</h1>
+		      <audio
+		        id={this.props.letter}
+		      	className='clip' 
+		      	src={this.props.src} 
+		        ref={ref => this.audio = ref}
+		      ></audio>
+		    </div>
+	    );
+	  }
+    };
+    
     class App extends React.Component {
 	  constructor(props) {
 	    super(props);
@@ -42,10 +93,11 @@
 		drum pads */}
 	    return (
 	      <div id='drum-machine'>
-	        <h2 id="display">{this.state.display}</h2>
+	        <div id="display">{this.state.display}</div>
 	        <div id='drum-pads'>
 	        	{data.map(d => (
 	          <DrumPad
+	            key={d.id}
 	          	id={d.id}
 	          	letter={d.letter}
 	          	src={d.src}
@@ -57,54 +109,6 @@
 	    );
 	  }
 	};
-	
-	class DrumPad extends React.Component {
-	  constructor(props) {
-	    super(props);
-
-	    this.playAudioClip = this.playAudioClip.bind(this);
-	    this.handleKeyPress = this.handleKeyPress.bind(this);
-	  }
-
-	  playAudioClip() {
-        var audio = new Audio(this.props.src);
-        audio.play();
-        audio.currentTime = 0;
-        this.props.handleDisplay(this.props.id);
-	  }
-	  
-	  componentDidMount() {
-	    document.addEventListener('keydown', this.handleKeyPress);
-	  }
-	  
-	  componentWillUnmount() {
-	    document.removeEventListener('keydown', this.handleKeyPress);
-	  }
-
-	  handleKeyPress(e) {
-        if (e.keyCode === this.props.letter.charCodeAt()) {
-          this.playAudioClip();
-        }
-	  }
-	  
-	  render() {
-	    return (
-	      <div 
-	      	className="drum-pad" 
-	      	id={this.props.id}
-	      	onClick={this.playAudioClip}
-	      	onKeyPress={this.handleKeyPress}>
-	       	<p>{this.props.letter}</p>
-		      <audio 
-		      	ref={ref => this.audio = ref}
-		      	className='clip' 
-		      	src={this.props.src} 
-		      	id={this.props.letter}>
-		      </audio>
-		    </div>
-	    );
-	  }
-    };
     
     ReactDOM.render(
       <App />,
