@@ -1,0 +1,33 @@
+ #title {
+	 font-family: 'Source Sans Pro', sans-serif;
+	 font-size: 80px;
+   text-align: center;
+}
+	
+div {
+  font-family: 'Source Sans Prop', sans-serif;
+	font-size: 48px;
+}
+
+.drum-pad {
+  border: 1px solid black;
+  height: 15vh;
+  width: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+  background-color: white;
+}
+
+#drum-pads {
+  height: 75vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#display {
+  text-align: center;
+}
